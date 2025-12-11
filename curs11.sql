@@ -1,0 +1,1 @@
+-- Adauga constrangerea ca intr-un departament sa nu am ami mult de trezieci de angajati
