@@ -128,13 +128,13 @@ values (5, 5);
 -- EVENIMENT (entitate dependenta de ORGANIZATOR)
 insert into eveniment (id_utilizator, denumire, pret)
 values (3, 'Smart Hack', 149.49);
-insert into eveniment (id_utilizator, denumire, pret)
+insert into eveniment (id_utilizator, denumire)
 values (4, 'Seara Colinde');
 insert into eveniment (id_utilizator, denumire, pret)
 values (5, 'DAW Internship', 2039.89);
 insert into eveniment (id_utilizator, denumire, pret)
 values (6, 'Marsul Aparatorilor Credintei', 0);
-insert into eveniment (id_utilizator, denumire, pret)
+insert into eveniment (id_utilizator, denumire)
 values (7, 'Trezirea Natiunii');
 
 -- BILET (entitate de legatur intre SPECTATOR si EVENIMENT)
@@ -151,7 +151,7 @@ values (4, 3, 2039.89, 'rezervat', 12);
 insert into bilet (id_utilizator, id_eveniment)
 values (5, 2);
 insert into bilet (id_utilizator, id_eveniment)
-values (5, 7);
+values (5, 5);
 
 -- EVENIMENT_LOCATIE (tabel asociativ)
 insert into eveniment_locatie (id_eveniment, id_locatie) values (1, 6);
@@ -181,5 +181,7 @@ insert into eveniment_istoric (id_eveniment, id_istoric) values (4, 1);
 insert into eveniment_istoric (id_eveniment, id_istoric) values (5, 4);
 insert into eveniment_istoric (id_eveniment, id_istoric) values (5, 5);
 
--- Salveaza datele inserate
+-- Salveaza modificarile 
 commit;
+
+select id_istoric, to_char(incepe, 'YYYY-MM-DD HH24:SS') as incepe, to_char(termina, 'YYYY-MM-DD HH24:SS') as termina from istoric;
