@@ -185,3 +185,12 @@ insert into eveniment_istoric (id_eveniment, id_istoric) values (5, 5);
 commit;
 
 select id_istoric, to_char(incepe, 'YYYY-MM-DD HH24:SS') as incepe, to_char(termina, 'YYYY-MM-DD HH24:SS') as termina from istoric;
+
+--
+-- Actualizeaza tabelele pentru restul cerintelor
+--
+
+insert into eveniment (id_utilizator, denumire, pret)
+values (3, 'Hackathon', 749.49);
+insert into eveniment (id_utilizator, denumire)
+values (4, 'Maraton de iarna');
