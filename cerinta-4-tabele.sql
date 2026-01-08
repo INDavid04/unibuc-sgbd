@@ -1,3 +1,5 @@
+-- 4. Implementați în Oracle diagrama conceptuală realizată: definiți toate tabelele, adăugând toate constrângerile de integritate necesare (chei primare, cheile externe etc)
+
 --
 -- Sterge vechile tabele
 --

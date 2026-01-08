@@ -1,3 +1,5 @@
+-- 5. Adăugați informații coerente în tabelele create (minim 5 înregistrări pentru fiecare entitate independentă; minim 10 înregistrări pentru fiecare tabelă asociativă)
+
 --
 -- Insereaza in tabele
 --
