@@ -20,8 +20,8 @@ insert into utilizator (nume, mail, parola)
 values ('Marcel Ioan', 'marcel-ioan@gmail.com', 'marcelioan');
 insert into utilizator (nume, mail, parola)
 values ('Vlada Gogu', 'vlada-gogu@gmail.com', 'vladagogu');
-insert into utilizator (nume, mail, parola)
-values ('Gheorge Rut', 'gheorghe-rut@gmail.com', 'gheorgherut');
+insert into utilizator (nume)
+values ('Gheorge Rut');
 insert into utilizator (nume, mail, parola)
 values ('Saiz Liviu', 'saiz-liviu@gmail.com', 'saizliviu');
 insert into utilizator (nume, mail, parola)
