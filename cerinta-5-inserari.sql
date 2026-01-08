@@ -190,7 +190,34 @@ select id_istoric, to_char(incepe, 'YYYY-MM-DD HH24:SS') as incepe, to_char(term
 -- Actualizeaza tabelele pentru restul cerintelor
 --
 
+-- Adauga doua evenimente
 insert into eveniment (id_utilizator, denumire, pret)
 values (3, 'Hackathon', 749.49);
 insert into eveniment (id_utilizator, denumire)
 values (4, 'Maraton de iarna');
+
+-- Adauga 11 locatii pentru un eveniment
+insert into locatie(id_judet, denumire) values (1, 'Teatrul Pastia');
+insert into locatie(id_judet, denumire) values (1, 'Ateneul Popular');
+insert into locatie(id_judet, denumire) values (1, 'Catedrala Unirii');
+insert into locatie(id_judet, denumire) values (1, 'Mausoleul Sud');
+insert into locatie(id_judet, denumire) values (1, 'Parcul Baclescu');
+insert into locatie(id_judet, denumire) values (1, 'Piata Garii');
+insert into locatie(id_judet, denumire) values (1, 'Stadionul Milcovul');
+insert into locatie(id_judet, denumire) values (1, 'Biblioteca Judeteana');
+insert into locatie(id_judet, denumire) values (1, 'Prefectura Veche');
+insert into locatie(id_judet, denumire) values (1, 'Muzeul Satului');
+insert into locatie(id_judet, denumire) values (1, 'Galeriile de Arta');
+
+-- Adaugam cele 11 locatii la evenimentul Hackathon care are eveniment_id = 21
+insert into eveniment_locatie(id_eveniment, id_locatie) values (21, 21);
+insert into eveniment_locatie(id_eveniment, id_locatie) values (21, 22);
+insert into eveniment_locatie(id_eveniment, id_locatie) values (21, 23);
+insert into eveniment_locatie(id_eveniment, id_locatie) values (21, 24);
+insert into eveniment_locatie(id_eveniment, id_locatie) values (21, 25);
+insert into eveniment_locatie(id_eveniment, id_locatie) values (21, 26);
+insert into eveniment_locatie(id_eveniment, id_locatie) values (21, 27);
+insert into eveniment_locatie(id_eveniment, id_locatie) values (21, 28);
+insert into eveniment_locatie(id_eveniment, id_locatie) values (21, 29);
+insert into eveniment_locatie(id_eveniment, id_locatie) values (21, 30);
+insert into eveniment_locatie(id_eveniment, id_locatie) values (21, 31);

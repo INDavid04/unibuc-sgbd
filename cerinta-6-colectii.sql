@@ -23,6 +23,7 @@ create or replace procedure raport_eveniment (p_id_eveniment eveniment.id_evenim
     v_nume_eveniment eveniment.denumire%type;
     v_index pls_integer;
     v_suma_preturi number := 0;
+    v_total_locatii_gasite number := 0;
     v_cnt number := 0;
 begin
     -- Preia numele evenimentului
@@ -31,8 +32,10 @@ begin
     dbms_output.put_line('');
 
     --
-    -- a) INDEX-BY TABLE (Recomand: raport_eveniment(2);)
+    -- a) INDEX-BY TABLE
     --
+
+    v_index := v_spectatori.first;
 
     for r_spectator in (
         select u.id_utilizator, u.nume
@@ -44,7 +47,8 @@ begin
     end loop;
 
     dbms_output.put_line('## Spectatori inscrisi');
-    v_index := v_spectatori.first;
+
+    -- Testeaza: raport_eveniment(2);
     while v_index is not null loop
         v_cnt := v_cnt + 1;
         dbms_output.put_line('');
@@ -66,10 +70,12 @@ begin
             v_suma_preturi := v_suma_preturi + NVL(v_preturi(i), 0);
         end loop;
 
-        dbms_output.put_line('');
+        -- Testeaza: raport_eveniment(1);
+        dbms_output.put_line(''); 
         dbms_output.put_line('- Pretul mediu al unui bilet este ' || round(v_suma_preturi/v_preturi.count, 2));
     else
-        dbms_output.put_line('Nu s-au gasit bilete');
+        -- Testeaza: raport_eveniment(22);
+        dbms_output.put_line('Nu s-au gasit bilete'); 
     end if;
 
     --
@@ -82,6 +88,7 @@ begin
         join eveniment_locatie el on l.id_locatie = el.id_locatie
         where el.id_eveniment = p_id_eveniment
     ) loop
+        v_total_locatii_gasite := v_total_locatii_gasite + 1;
         if v_locatii.count < 10 then
             v_locatii.extend;
             v_locatii(v_locatii.last) := r_loc.denumire;
@@ -90,13 +97,22 @@ begin
 
     dbms_output.put_line('');
     dbms_output.put_line('## Locatii desfasurare');
-    v_cnt := 1;
-    for i in 1..v_locatii.count loop
-        dbms_output.put_line(v_cnt || '. ' || v_locatii(i));
-        v_cnt := v_cnt + 1;
-    end loop;
+
+    if v_total_locatii_gasite > 10 then
+        -- Testeaza: raport_eveniment(21);
+        dbms_output.put_line('S-au gasit mai multe locatii decat limita prestabilita');
+    else
+        v_cnt := 1;
+
+        -- Testeaza: raport_eveniment(4);
+        for i in 1..v_locatii.count loop
+            dbms_output.put_line(v_cnt || '. ' || v_locatii(i));
+            v_cnt := v_cnt + 1;
+        end loop;
+    end if;
 exception
     when no_data_found then
+        -- Testeaza: raport_eveniment(101);
         dbms_output.put_line('Eroare: Eveniment inexistent.');
     when others then
         dbms_output.put_line('Eroare: ' || sqlerrm);
@@ -106,6 +122,6 @@ end;
 set serveroutput on;
 
 begin
-    raport_eveniment(5);
+    raport_eveniment(101);
 end;
 /
