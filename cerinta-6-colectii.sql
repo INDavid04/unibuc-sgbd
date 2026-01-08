@@ -35,8 +35,6 @@ begin
     -- a) INDEX-BY TABLE
     --
 
-    v_index := v_spectatori.first;
-
     for r_spectator in (
         select u.id_utilizator, u.nume
         from utilizator u
@@ -45,6 +43,8 @@ begin
     ) loop
         v_spectatori(r_spectator.id_utilizator) := r_spectator.nume;
     end loop;
+
+    v_index := v_spectatori.first;
 
     dbms_output.put_line('## Spectatori inscrisi');
 
@@ -74,7 +74,7 @@ begin
         dbms_output.put_line(''); 
         dbms_output.put_line('- Pretul mediu al unui bilet este ' || round(v_suma_preturi/v_preturi.count, 2));
     else
-        -- Testeaza: raport_eveniment(22);
+        -- Testeaza: raport_eveniment(6);
         dbms_output.put_line('Nu s-au gasit bilete'); 
     end if;
 
@@ -99,7 +99,7 @@ begin
     dbms_output.put_line('## Locatii desfasurare');
 
     if v_total_locatii_gasite > 10 then
-        -- Testeaza: raport_eveniment(21);
+        -- Testeaza: raport_eveniment(7);
         dbms_output.put_line('S-au gasit mai multe locatii decat limita prestabilita');
     else
         v_cnt := 1;
