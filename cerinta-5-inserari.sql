@@ -21,7 +21,7 @@ values ('Marcel Ioan', 'marcel-ioan@gmail.com', 'marcelioan');
 insert into utilizator (nume, mail, parola)
 values ('Vlada Gogu', 'vlada-gogu@gmail.com', 'vladagogu');
 insert into utilizator (nume)
-values ('Gheorge Rut');
+values ('Gheorghe Rut');
 insert into utilizator (nume, mail, parola)
 values ('Saiz Liviu', 'saiz-liviu@gmail.com', 'saizliviu');
 insert into utilizator (nume, mail, parola)

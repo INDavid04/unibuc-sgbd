@@ -28,15 +28,15 @@ begin
 exception
     -- Testeaza: raport_spectator(7);
     when no_data_found then
-        return 'Exceptie: Spectatorul nu are niciun bilet.';
+        return 'Eroare: Spectatorul nu are niciun bilet.';
     -- Testeaza: raport_spectator(1);
     when too_many_rows then
-        return 'Exceptie: Spectatorul are mai multe bilete.';
+        return 'Eroare: Spectatorul are mai multe bilete.';
     when lipseste_mail then
     -- Testeaza: raport_spectator(4);
-        return 'Exceptie: Spectatorul are profilul incomplet (lipseste mail).';
+        return 'Eroare: Spectatorul are profilul incomplet (lipseste mail).';
     when others then
-        return 'Exceptie: ' || sqlerrm;
+        return 'Eroare: ' || sqlerrm;
     -- Reusit: raport_spectator(2);
 end;
 /
