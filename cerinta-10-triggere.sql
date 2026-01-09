@@ -34,5 +34,8 @@ where id_bilet = 2;
 -- Declanseaza triggerul prin delete
 delete from bilet where loc = 12;
 
--- Doar testam, nu salavam insert-ul, update-ul, delete-ul
+-- Sterge linia urmatoare daca vrei sa ramana operatiunile
 rollback;
+
+-- Sterge linia daca vrei sa ramana trigger-ul
+drop trigger monitorizeaza_bilete;

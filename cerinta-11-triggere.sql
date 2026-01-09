@@ -35,5 +35,8 @@ exception
 end;
 /
 
--- Deoarece doar testam, nu salvam modificarile
+-- Sterge linia daca vrei sa actualizezi tabelul bilet cu noul pret (300 pentru primul, al doilea nu se modifica intrucat este deja folosit)
 rollback;
+
+-- Sterge linia daca vrei sa ramana trigger-ul
+drop trigger protectie_bilete_folosite;
