@@ -37,9 +37,9 @@ begin
 
     for r_spectator in (
         select u.id_utilizator, u.nume
-        from utilizator u
-        join bilet b on u.id_utilizator = b.id_utilizator
-        where b.id_eveniment = p_id_eveniment
+        from utilizator u, bilet b
+        where u.id_utilizator = b.id_utilizator
+        and b.id_eveniment = p_id_eveniment
     ) loop
         v_spectatori(r_spectator.id_utilizator) := r_spectator.nume;
     end loop;
@@ -84,9 +84,9 @@ begin
 
     for r_loc in (
         select l.denumire
-        from locatie l
-        join eveniment_locatie el on l.id_locatie = el.id_locatie
-        where el.id_eveniment = p_id_eveniment
+        from locatie l, eveniment_locatie el
+        where l.id_locatie = el.id_locatie
+        and el.id_eveniment = p_id_eveniment
     ) loop
         v_total_locatii_gasite := v_total_locatii_gasite + 1;
         if v_locatii.count < 10 then

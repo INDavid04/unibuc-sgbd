@@ -15,10 +15,10 @@ create or replace function raport_spectator (p_id_utilizator utilizator.id_utili
 begin
     select u.nume, e.denumire, b.pret, u.mail
     into v_nume, v_eveniment, v_pret, v_mail
-    from utilizator u
-    join bilet b on b.id_utilizator = u.id_utilizator
-    join eveniment e on e.id_eveniment = b.id_eveniment
-    where u.id_utilizator = p_id_utilizator;
+    from utilizator u, bilet b, eveniment e
+    where b.id_utilizator = u.id_utilizator
+    and e.id_eveniment = b.id_eveniment
+    and u.id_utilizator = p_id_utilizator;
 
     if v_mail is null then
         raise lipseste_mail;

@@ -31,8 +31,8 @@ begin
     -- Deschide ref cursorul pentru a gasi toti organizatorii
     open v_cursor_org for
         select u.id_utilizator, u.nume
-        from utilizator u
-        join organizator o on o.id_utilizator = u.id_utilizator
+        from utilizator u, organizator o
+        where o.id_utilizator = u.id_utilizator
     ;
 
     loop
