@@ -67,6 +67,6 @@ end;
 
 set serveroutput on;
 begin
-    are_profil_si_bilet('Saiz Liviu', 'Pont Vieux Albi');
+    are_profil_si_bilet('Saiz Liviu', 'Larsmo');
 end;
 /
